@@ -13,5 +13,6 @@
     {
       "path": "./tsconfig.spec.json"
     }
-]
+  ],
+  "typeRoots": ["node_modules/@types", "node_module/@angular"]
 }

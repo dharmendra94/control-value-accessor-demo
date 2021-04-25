@@ -1,0 +1,92 @@
+@import '~@angular/material/theming';
+
+// Include common styles for material core. We include this here so that you only
+// have to load single css file for Angular material in your app
+@include mat-core();
+
+$md-primary: (
+    50 : #feefe0,
+    100 : #fcd8b3,
+    200 : #fabe80,
+    300 : #f8a34d,
+    400 : #f79026,
+    500 : #f57c00,
+    600 : #f47400,
+    700 : #f26900,
+    800 : #f05f00,
+    900 : #ee4c00,
+    A100 : #ffffff,
+    A200 : #ffe9e1,
+    A400 : #ffc3ae,
+    A700 : #ffb095,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-accent: (
+    50 : #e9f1ff,
+    100 : #c7dcff,
+    200 : #a2c5ff,
+    300 : #7cadff,
+    400 : #609cff,
+    500 : #448aff,
+    600 : #3e82ff,
+    700 : #3577ff,
+    800 : #2d6dff,
+    900 : #1f5aff,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #cedaff,
+    A700 : #b5c6ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+
+// Define the palettes for your theme using the Material Design palettes available
+// in palette.scss
+// For each palette, you can optionally specify a default, lighter, and darker hue.
+$primary-color-dark:   #F57C00;
+$primary-color:        #FF9800;
+$primary-color-light:  #FFE0B2;
+$primary-color-text:   #212121;
+$accent-color:         #448AFF;
+$primary-text-color:   #212121;
+$secondary-text-color: #757575;
+$divider-color:        #BDBDBD;
+
+$app-primary: mat-palette($md-primary);
+$app-accent: mat-palette($md-accent);
+
+$app-theme: mat-light-theme($app-primary, $app-accent);
+
+@include angular-material-theme($app-theme);
