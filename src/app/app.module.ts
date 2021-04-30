@@ -8,10 +8,14 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RatingComponent } from './rating/rating.component';
+import { MatCardModule } from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, RatingComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -20,7 +24,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSliderModule,
     MatButtonModule,
     MatListModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule,
+    MatCardModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent],

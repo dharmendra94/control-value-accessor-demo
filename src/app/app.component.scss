@@ -1,0 +1,54 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #d8d8d8;
+}
+
+.main-body {
+  background: #fff;
+  padding: 30px;
+  height: 450px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.username {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.movies {
+  width: 400px;
+  height: 290px;
+  overflow: auto;
+}
+
+.movie {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  justify-content: space-between;
+}
+
+.movie div {
+  margin: 10px;
+  max-width: 40%;
+}
+
+.movie-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.submit-section {
+  margin: 20px 0;
+}

@@ -2,7 +2,7 @@ import { SearchResponse, movie } from './models/netflix-search-response';
 import { NetflixSearchRequest } from './models/netflix-search-req';
 import { NetflixSearchService } from './services/netflix-search.service';
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
     audiosubtitle_andor: 'and',
     limit: '100',
     subtitle: 'english',
-    countrylist: '78,46',
+    countrylist: '337',
     audio: 'english',
     country_andorunique: 'unique',
     offset: '0',
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
   netflixSearchResponse: SearchResponse;
 
   userReviews = new FormGroup({
-    userName: new FormControl('Dharma'),
+    userName: new FormControl('', Validators.required),
     movies: new FormArray([]),
   });
 
@@ -36,6 +36,15 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.searchMovies();
+  }
+
+  movieName(movie: FormGroup) {
+    return movie.get('title').value;
+  }
+
+  submitReviews(): void {
+    const reviews = this.userReviews.value;
+    console.log(reviews);
   }
 
   private searchMovies() {
@@ -51,8 +60,12 @@ export class AppComponent implements OnInit {
     movie.map((m) => {
       this.movies.push(
         new FormGroup({
-          title: new FormControl(m.title),
-          rating: new FormControl(m.imdbrating),
+          id: new FormControl(m.id),
+          title: new FormControl(
+            { value: m.title, disabled: true },
+            Validators.required
+          ),
+          rating: new FormControl(),
         })
       );
     });

@@ -1,13 +1,41 @@
-<form [formGroup]="userReviews">
-  <input type="text" formControlName="userName">
-  <mat-list role="movie_list" formControlName="movies">
-    <mat-list-item *ngFor="let movie of movies.controls">
-      <ng-container [formGroup]="movie">
-        <input type="text" formControlName="title" />
-        <input type="text" formControlName="rating" />
-      </ng-container>
-    </mat-list-item>
-  </mat-list>
-</form>
+<div class="main">
+  <div class="main-body">
+    <h1 style="text-align: center">Netflix movie review</h1>
+    <form [formGroup]="userReviews">
+      <mat-form-field class="username">
+        <mat-label>Your name</mat-label>
+        <input matInput type="text" formControlName="userName" />
+        <button mat-button matSuffix mat-icon-button></button>
+      </mat-form-field>
+      <div class="movies">
+        <div
+          *ngFor="let movie of movies.controls"
+          [formGroup]="movie"
+          class="movie"
+        >
+          <mat-form-field style="display: none">
+            <mat-label>Movie name</mat-label>
+            <input matInput formControlName="id" />
+          </mat-form-field>
+
+          <div class="movie-name" [title]="movieName(movie)">
+            {{ movieName(movie) }}
+          </div>
+          <app-rating formControlName="rating"></app-rating>
+        </div>
+      </div>
+      <div class="flex-center submit-section">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="submitReviews()"
+          [disabled]="!userReviews.valid"
+        >
+          Submit reviews
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
 
 <router-outlet></router-outlet>
